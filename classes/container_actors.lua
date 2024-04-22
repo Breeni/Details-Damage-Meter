@@ -68,7 +68,7 @@
 	local debugPetname = false
 
 	local SPELLID_SANGUINE_HEAL = 226510
-	local GetSpellInfo = C_Spell and function (spell)
+	local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and function (spell)
 		if not spell then
 			return nil
 		end

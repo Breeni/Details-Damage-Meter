@@ -8,7 +8,7 @@ local Loc = _G.LibStub("AceLocale-3.0"):GetLocale("Details")
 local _
 local tocName, Details222 = ...
 
-local GetSpellInfo = C_Spell and function (spell)
+local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and function (spell)
 	local tbl = C_Spell.GetSpellInfo(spell);
 	if not tbl then
 		return nil

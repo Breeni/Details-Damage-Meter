@@ -1,7 +1,7 @@
 
 local Details = _G.Details
 local L = LibStub("AceLocale-3.0"):GetLocale ( "Details" )
-local GetSpellInfo = C_Spell and function (spell)
+local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and function (spell)
     if not spell then
         return nil
     end

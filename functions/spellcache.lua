@@ -7,7 +7,7 @@ do
 	local rawget = rawget
 	local rawset = rawset
 	local setmetatable = setmetatable
-	local GetSpellInfo = C_Spell and function (spell)
+	local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and function (spell)
 		if not spell then
 			return nil
 		end

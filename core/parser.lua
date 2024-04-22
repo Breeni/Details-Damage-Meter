@@ -26,7 +26,7 @@
 
 	local _UnitGroupRolesAssigned = detailsFramework.UnitGroupRolesAssigned
 	local _GetSpellInfo = Details.getspellinfo
-	local GetSpellInfo = C_Spell and function (spell)
+	local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo and function (spell)
 		if not spell then
 			return nil
 		end
