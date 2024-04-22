@@ -3178,7 +3178,7 @@ function DF:CreateAnimation(animationGroup, animationType, order, duration, arg1
 		anim:SetToAlpha(arg2)
 
 	elseif (animationType == "SCALE") then
-		if (DF.IsDragonflight() or DF.IsNonRetailWowWithRetailAPI()) then
+		if (DF.IsDragonflightAndBeyond() or DF.IsNonRetailWowWithRetailAPI()) then
 			anim:SetScaleFrom(arg1, arg2)
 			anim:SetScaleTo(arg3, arg4)
 		else

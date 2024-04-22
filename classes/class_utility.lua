@@ -15,7 +15,14 @@ local GameTooltip = GameTooltip
 local IsInRaid = IsInRaid
 local IsInGroup = IsInGroup
 local GetNumGroupMembers = GetNumGroupMembers
-local _UnitAura = UnitAura
+local _UnitAura = UnitAura or function(unitToken, index, filter)
+	local auraData = C_UnitAuras.GetAuraDataByIndex(unitToken, index, filter);
+	if not auraData then
+		return nil;
+	end
+
+	return AuraUtil.UnpackAuraData(auraData);
+end
 local UnitGUID = UnitGUID
 local _UnitName = UnitName
 local format = _G.format
@@ -1351,7 +1358,14 @@ function atributo_misc:ToolTipDispell(instancia, numero, barra)
 end
 
 local UnitReaction = UnitReaction
-local UnitDebuff = UnitDebuff
+local UnitDebuff = UnitDebuff or function(unitToken, index, filter)
+	local auraData = C_UnitAuras.GetDebuffDataByIndex(unitToken, index, filter);
+	if not auraData then
+		return nil;
+	end
+
+	return AuraUtil.UnpackAuraData(auraData);
+end
 
 function _detalhes:CloseEnemyDebuffsUptime()
 	local combat = _detalhes.tabela_vigente

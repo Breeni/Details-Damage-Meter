@@ -1,6 +1,16 @@
 
 local Details = _G.Details
 local L = LibStub("AceLocale-3.0"):GetLocale ( "Details" )
+local GetSpellInfo = C_Spell and function (spell)
+    if not spell then
+        return nil
+    end
+	local tbl = C_Spell.GetSpellInfo(spell);
+	if not tbl then
+		return nil
+	end
+	return tbl.name, nil, tbl.iconID, tbl.castTime, tbl.minRange, tbl.maxRange, tbl.spellID, tbl.originalIconID
+end or GetSpellInfo
 
 --default weaktable
 Details.weaktable = {__mode = "v"}

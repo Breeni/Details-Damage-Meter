@@ -2,7 +2,7 @@
 --data for dragonflight expansion
 do
 	local versionString, revision, launchDate, gameVersion = GetBuildInfo()
-	if (gameVersion >= 110000 or gameVersion < 100000) then
+	if (gameVersion >= 120000 or gameVersion < 100000) then
 		return
 	end
 

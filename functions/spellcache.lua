@@ -7,7 +7,16 @@ do
 	local rawget = rawget
 	local rawset = rawset
 	local setmetatable = setmetatable
-	local GetSpellInfo = GetSpellInfo
+	local GetSpellInfo = C_Spell and function (spell)
+		if not spell then
+			return nil
+		end
+		local tbl = C_Spell.GetSpellInfo(spell);
+		if not tbl then
+			return nil
+		end
+		return tbl.name, nil, tbl.iconID, tbl.castTime, tbl.minRange, tbl.maxRange, tbl.spellID, tbl.originalIconID
+	end or GetSpellInfo
 	local unpack = unpack
 	local tinsert = table.insert
 	local tremove = tremove

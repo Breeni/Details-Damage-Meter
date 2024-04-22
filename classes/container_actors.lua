@@ -68,6 +68,16 @@
 	local debugPetname = false
 
 	local SPELLID_SANGUINE_HEAL = 226510
+	local GetSpellInfo = C_Spell and function (spell)
+		if not spell then
+			return nil
+		end
+		local tbl = C_Spell.GetSpellInfo(spell);
+		if not tbl then
+			return nil
+		end
+		return tbl.name, nil, tbl.iconID, tbl.castTime, tbl.minRange, tbl.maxRange, tbl.spellID, tbl.originalIconID
+	end or GetSpellInfo
 	local sanguineActorName = GetSpellInfo(SPELLID_SANGUINE_HEAL)
 
 

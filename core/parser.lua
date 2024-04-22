@@ -26,6 +26,16 @@
 
 	local _UnitGroupRolesAssigned = detailsFramework.UnitGroupRolesAssigned
 	local _GetSpellInfo = Details.getspellinfo
+	local GetSpellInfo = C_Spell and function (spell)
+		if not spell then
+			return nil
+		end
+		local tbl = C_Spell.GetSpellInfo(spell);
+		if not tbl then
+			return nil
+		end
+		return tbl.name, nil, tbl.iconID, tbl.castTime, tbl.minRange, tbl.maxRange, tbl.spellID, tbl.originalIconID
+	end or GetSpellInfo
 	local isWOTLK = detailsFramework.IsWotLKWow()
 	local isERA = detailsFramework.IsClassicWow()
 	local isCATA = detailsFramework.IsCataWow()
